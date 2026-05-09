@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+</table>
+
+</div>
+
+<div class="table-box">
+
+<h2>⚠ Failed & Retry Queue</h2>
+
+<table>
+<tr>
+<th>Email</th>
+<th>Status</th>
+<th>Retry</th>
+</tr>
+
+<tr>
+<td>demo@gmail.com</td>
+<td style="color:red;">Failed</td>
+<td><button>Retry</button></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+const sent = {{sent}};
+const failed = {{failed}};
+
+new Chart(document.getElementById('myChart'), {
+    type:'bar',
+    data:{
+        labels:['Sent','Failed'],
+        datasets:[{
+            label:'Emails',
+            data:[sent,failed],
+            backgroundColor:['#22c55e','#ef4444']
+        }]
+    }
+});
+
+new Chart(document.getElementById('pieChart'), {
+    type:'pie',
+    data:{
+        labels:['Sent','Failed'],
+        datasets:[{
+            data:[sent,failed],
+            backgroundColor:['#22c55e','#ef4444']
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>

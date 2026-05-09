@@ -1,0 +1,227 @@
+export default function Dashboard() {
+  const stats = [
+    { title: 'Emails Sent', value: '3,256', color: 'from-blue-500 to-cyan-400' },
+    { title: 'Emails Delivered', value: '2,942', color: 'from-green-500 to-emerald-400' },
+    { title: 'Emails Failed', value: '314', color: 'from-red-500 to-pink-500' },
+    { title: 'Open Rate', value: '68.4%', color: 'from-violet-500 to-purple-500' },
+    { title: 'Click Rate', value: '24.7%', color: 'from-yellow-500 to-orange-500' },
+  ]
+
+  const campaigns = [
+    ['Product Launch', '1024'],
+    ['Newsletter May', '823'],
+    ['Promo Offer', '689'],
+    ['Event Invite', '481'],
+    ['Survey Request', '239'],
+  ]
+
+  const activities = [
+    'Campaign “Product Launch” sent successfully',
+    'New contact added: John Doe',
+    'Automation rule triggered',
+    'Newsletter completed',
+    'Email delivery failed for support@example.com',
+  ]
+
+  return (
+    <div className="min-h-screen bg-[#07111f] text-white flex">
+      {/* SIDEBAR */}
+      <div className="w-64 bg-[#081425] border-r border-cyan-900 p-6 flex flex-col justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-cyan-400 mb-10">
+            AI Email Command Center
+          </h1>
+
+          <div className="space-y-3">
+            {[
+              'Dashboard',
+              'AI Email Generator',
+              'Contacts',
+              'Campaigns',
+              'Automation',
+              'Analytics',
+              'Reports',
+              'Templates',
+              'Logs',
+              'Settings',
+              'Users',
+              'Integrations',
+            ].map((item) => (
+              <div
+                key={item}
+                className="bg-[#0d1c30] hover:bg-blue-600 transition p-3 rounded-xl cursor-pointer"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-blue-600 to-cyan-500 p-5 rounded-2xl mt-10 shadow-xl">
+          <h2 className="font-bold text-lg">Upgrade Plan 🚀</h2>
+          <p className="text-sm mt-2 opacity-80">
+            Unlock premium analytics and automation.
+          </p>
+          <button className="mt-4 bg-white text-black px-4 py-2 rounded-xl font-semibold w-full">
+            Upgrade Now
+          </button>
+        </div>
+      </div>
+
+      {/* MAIN */}
+      <div className="flex-1 p-8 overflow-y-auto">
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h1 className="text-4xl font-bold">Dashboard</h1>
+            <p className="text-gray-400 mt-2">
+              Welcome back, Ruthu Shree 👋
+            </p>
+          </div>
+
+          <div className="bg-[#0d1c30] px-5 py-3 rounded-xl border border-cyan-900">
+            May 6 - May 12, 2025
+          </div>
+        </div>
+
+        {/* STATS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5">
+          {stats.map((card) => (
+            <div
+              key={card.title}
+              className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950 shadow-xl"
+            >
+              <div
+                className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${card.color} mb-5`}
+              />
+              <h2 className="text-gray-400">{card.title}</h2>
+              <p className="text-4xl font-bold mt-2">{card.value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* CHART SECTION */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-8">
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-6">Emails Sent vs Delivered</h2>
+
+            <div className="flex items-end gap-4 h-64">
+              {[50, 60, 58, 95, 65, 42, 56].map((v, i) => (
+                <div key={i} className="flex-1 flex flex-col items-center">
+                  <div
+                    style={{ height: `${v * 2}px` }}
+                    className="w-full bg-gradient-to-t from-blue-600 to-cyan-400 rounded-t-xl"
+                  />
+                  <span className="text-xs mt-2 text-gray-400">May {i + 6}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-6">Email Forecast Analytics</h2>
+
+            <div className="relative h-64 flex items-end gap-3">
+              {[40, 55, 48, 75, 62, 82, 80, 91, 108].map((v, i) => (
+                <div key={i} className="flex-1 flex flex-col items-center">
+                  <div
+                    style={{ height: `${v * 2}px` }}
+                    className="w-full rounded-t-xl bg-gradient-to-t from-green-500 to-emerald-300"
+                  />
+                  <span className="text-xs mt-2 text-gray-400">{i + 1}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* LOWER GRID */}
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 mt-8">
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-4">Email Distribution</h2>
+
+            <div className="w-56 h-56 rounded-full border-[24px] border-green-500 border-t-red-500 mx-auto mt-8 flex items-center justify-center text-center">
+              <div>
+                <div className="text-4xl font-bold">3,256</div>
+                <div className="text-gray-400">Total</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-6">Top Campaigns</h2>
+
+            <div className="space-y-5">
+              {campaigns.map((item) => (
+                <div key={item[0]}>
+                  <div className="flex justify-between mb-2">
+                    <span>{item[0]}</span>
+                    <span>{item[1]}</span>
+                  </div>
+                  <div className="w-full bg-[#13253d] rounded-full h-4">
+                    <div
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 h-4 rounded-full"
+                      style={{ width: `${Math.random() * 90 + 10}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-6">Open Rate</h2>
+
+            <div className="w-56 h-56 rounded-full border-[24px] border-blue-500 border-t-yellow-400 mx-auto mt-8 flex items-center justify-center text-center">
+              <div>
+                <div className="text-5xl font-bold">68%</div>
+                <div className="text-gray-400">Open Rate</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-6">Heatmap</h2>
+
+            <div className="grid grid-cols-7 gap-2 mt-6">
+              {Array.from({ length: 49 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="h-10 rounded-lg"
+                  style={{
+                    background: `rgba(255, ${50 + (i % 7) * 20}, ${120 + (i % 5) * 20}, 0.9)`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-8">
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-6">Geographic Performance</h2>
+
+            <div className="h-72 rounded-2xl bg-gradient-to-br from-[#081425] to-[#0e2038] flex items-center justify-center text-cyan-400 text-3xl font-bold border border-cyan-900">
+              🌍 WORLD MAP ANALYTICS
+            </div>
+          </div>
+
+          <div className="bg-[#0d1c30] rounded-2xl p-6 border border-cyan-950">
+            <h2 className="text-2xl font-bold mb-6">Recent Activity</h2>
+
+            <div className="space-y-5">
+              {activities.map((a) => (
+                <div
+                  key={a}
+                  className="bg-[#13253d] p-4 rounded-xl border border-cyan-950"
+                >
+                  {a}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
